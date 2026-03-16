@@ -1,5 +1,5 @@
 # ✅ Image Alpine (plus légère et sécurisée) - Version la plus récente
-FROM node:20.12-alpine3.23
+FROM node:20-alpine
 
 WORKDIR /app
 
