@@ -1,5 +1,7 @@
 # ✅ Image Alpine (plus légère et sécurisée) - Version la plus récente
 FROM node:20-alpine
+RUN apk update && apk upgrade
+
 
 WORKDIR /app
 
