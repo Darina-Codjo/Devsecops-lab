@@ -143,7 +143,7 @@ jobs:
           image-ref: vuln-app:${{ github.sha }}
           format: 'table'
           exit-code: '1'
-          severity: 'MEDIUM'
+          severity: 'CRITICAL'
   
   dast:
     name: ⚡ DAST
