@@ -46,7 +46,7 @@ jobs:
             p/owasp-top-ten
 
   codeql:
-    name: 🔍 CodeQL
+    name: 💡CodeQL
     runs-on: ubuntu-latest
     permissions:
       security-events: write  # Obligatoire pour CodeQL
@@ -60,7 +60,7 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: javascript
-          incremental: false  # Désactive l'analyse incrémentielle améliorée
+          incremental: false  # Désactive l'analyse incrémentielle améliorée, faux negatif de vs code
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
