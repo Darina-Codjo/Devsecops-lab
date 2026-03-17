@@ -48,20 +48,26 @@ jobs:
   codeql:
     name: 🔍 CodeQL
     runs-on: ubuntu-latest
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      security-events: write  # Obligatoire pour CodeQL
+      actions: read           # Permet de lire les métadonnées des actions
+      contents: read          # Permet de lire le code source
+
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: javascript
-      
+          incremental: false  # Désactive l'analyse incrémentielle améliorée
+
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
-      
+
       - name: Perform Analysis
         uses: github/codeql-action/analyze@v3
+
 
   # ═══════════════════════════════════════
   # 3. SCA - Analyse des dépendances (Software Composition Analysis)
